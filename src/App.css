@@ -48,6 +48,10 @@
   cursor: pointer;
 }
 
+.letter-open {
+  color: gray;
+}
+
 form {
   color: black;
 }

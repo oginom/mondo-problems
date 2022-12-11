@@ -69,15 +69,23 @@ function App() {
   var letters = [];
 
   for(var i=0; i<quiz.question.length; ++i) {
-    const letter = indices.includes(i) ? quiz.question[i] : SECRET;
+    const opened = indices.includes(i);
+    const letter = (opened || success) ? quiz.question[i] : SECRET;
+
+    var className = "letter";
+
+    if (!opened && success) {
+      className += " letter-open";
+    }
 
     const i_c = i;
     const clickFunc = function() {
+      if (success) return;
       if (!indices.includes(i_c)) {
         setIndices([...indices, i_c]);
       }
     }
-    letters.push(<div className="letter" onClick={clickFunc}>{ letter }</div>);
+    letters.push(<div className={className} onClick={clickFunc}>{ letter }</div>);
   }
 
   const submit = function() {
@@ -99,6 +107,25 @@ function App() {
     var i = dates.indexOf(date) + 1;
     if (i>dates.length-1) return;
     fetchData(dates[i]);
+  }
+
+  const tweet = function() {
+    var mat_s = "";
+    for (var i=0; i<quiz.question.length; ++i) {
+      if (i%6 === 0) mat_s += "\n";
+      mat_s += indices.includes(i) ? "🗯️" : "🎈";
+    }
+    debugger;
+
+    var text = `${date.replace('-', '/')}
+
+Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${miss+1}回目)${mat_s}
+`;
+    var url = `https://mondo.quizknock.com/?date=${date}&indices=${indices.join('-')}`;
+    var n = dates.indexOf(date);
+    var hashtags = `クイズMondo,Mondo${n}`;
+    const intent_url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
+    window.open(intent_url, '_blank');
   }
 
   return (
@@ -128,6 +155,11 @@ function App() {
         {success &&
           <div>
             correct!
+          </div>
+        }
+        {success &&
+          <div>
+            <button onClick={tweet}>tweet</button>
           </div>
         }
       </header>
