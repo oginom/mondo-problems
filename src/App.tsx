@@ -117,7 +117,7 @@ function App() {
     }
     debugger;
 
-    var text = `${date.replace('-', '/')}
+    var text = `${date.replaceAll('-', '/')}
 
 Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${miss+1}回目)${mat_s}
 `;
