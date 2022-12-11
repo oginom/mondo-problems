@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.letters {
+  width: 60%;
+}
+
+.letter {
+  float: left;
+  margin: 0 10px;
+  height: 2em;
+  cursor: pointer;
+}
+
+form {
+  color: black;
+}
