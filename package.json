@@ -1,5 +1,6 @@
 {
   "name": "mondo-problems",
+  "homepage": "https://oginom.github.io/mondo-problems/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -22,7 +23,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "rm": "rm -rf docs",
+    "mv": "mv build docs",
+    "deploy": "npm run rm && npm run build && npm run mv"
   },
   "eslintConfig": {
     "extends": [
