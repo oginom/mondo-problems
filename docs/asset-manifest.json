@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.c2cef2cc.css",
-    "main.js": "/static/js/main.f3f294d3.js",
-    "static/js/787.a77f4b20.chunk.js": "/static/js/787.a77f4b20.chunk.js",
-    "index.html": "/index.html",
-    "main.c2cef2cc.css.map": "/static/css/main.c2cef2cc.css.map",
-    "main.f3f294d3.js.map": "/static/js/main.f3f294d3.js.map",
-    "787.a77f4b20.chunk.js.map": "/static/js/787.a77f4b20.chunk.js.map"
+    "main.css": "/mondo-problems/static/css/main.c2cef2cc.css",
+    "main.js": "/mondo-problems/static/js/main.a23fe7d1.js",
+    "static/js/787.a77f4b20.chunk.js": "/mondo-problems/static/js/787.a77f4b20.chunk.js",
+    "index.html": "/mondo-problems/index.html",
+    "main.c2cef2cc.css.map": "/mondo-problems/static/css/main.c2cef2cc.css.map",
+    "main.a23fe7d1.js.map": "/mondo-problems/static/js/main.a23fe7d1.js.map",
+    "787.a77f4b20.chunk.js.map": "/mondo-problems/static/js/787.a77f4b20.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c2cef2cc.css",
-    "static/js/main.f3f294d3.js"
+    "static/js/main.a23fe7d1.js"
   ]
 }
