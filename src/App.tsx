@@ -115,14 +115,13 @@ function App() {
       if (i%6 === 0) mat_s += "\n";
       mat_s += indices.includes(i) ? "🗯️" : "🎈";
     }
-    debugger;
 
     var text = `${date.replaceAll('-', '/')}
 
 Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${miss+1}回目)${mat_s}
 `;
     var url = `https://mondo.quizknock.com/?date=${date}&indices=${indices.join('-')}`;
-    var n = dates.indexOf(date);
+    var n = dates.indexOf(date) - 14;
     var hashtags = `クイズMondo,Mondo${n}`;
     const intent_url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
     window.open(intent_url, '_blank');
