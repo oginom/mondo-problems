@@ -38,13 +38,14 @@
 }
 
 .letters {
-  width: 60%;
+  width: calc(6em + 125px);
 }
 
 .letter {
   float: left;
   margin: 0 10px;
   height: 2em;
+  width: 1em;
   cursor: pointer;
 }
 
