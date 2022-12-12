@@ -167,7 +167,7 @@ Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${m
         }
         {success &&
           <div>
-            <a href={ getLink() } className="App-link">link</a>
+            <a target="_blanc" href={ getLink() } className="App-link">link</a>
           </div>
         }
       </div>
