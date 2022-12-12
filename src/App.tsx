@@ -109,6 +109,10 @@ function App() {
     fetchData(dates[i]);
   }
 
+  const getLink = function() {
+    return `https://mondo.quizknock.com/?date=${date}&indices=${indices.join('-')}`;
+  }
+
   const tweet = function() {
     var mat_s = "";
     for (var i=0; i<quiz.question.length; ++i) {
@@ -120,7 +124,7 @@ function App() {
 
 Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${miss+1}回目)${mat_s}
 `;
-    var url = `https://mondo.quizknock.com/?date=${date}&indices=${indices.join('-')}`;
+    var url = getLink();
     var n = dates.indexOf(date) - 14;
     var hashtags = `クイズMondo,Mondo${n}`;
     const intent_url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
@@ -129,7 +133,7 @@ Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${m
 
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="App-content">
         <div>
           <button onClick={prev}>&lt;</button>
           date: { date }
@@ -161,7 +165,12 @@ Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${m
             <button onClick={tweet}>tweet</button>
           </div>
         }
-      </header>
+        {success &&
+          <div>
+            <a href={ getLink() } className="App-link">link</a>
+          </div>
+        }
+      </div>
     </div>
   );
 }
