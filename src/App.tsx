@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
@@ -34,23 +34,27 @@ function App() {
 
   async function fetchData(d: string) {
     const response = await axios.get(`${API_URL}?date=${d}`);
-    console.log(response);
     setQuiz(response.data);
     setIndices([]);
     setMiss(0);
     setSuccess(false);
     setAnswer("");
     setDate(d);
+
+    setSearchParams({'date': d});
+
     return response;
   }
 
   useEffect(() => {
+
+    // timezone のせいで 1日ずれているが、面倒なのでなぜか動くコードで動かす
     const today = new Date();
     var date0 = new Date(2022, 4, 18); // 2022-05-18
     var dates_r = [];
     for (var i=0;i<1000;++i) {
-      dates_r.push(date0.toISOString().split("T")[0]);
       date0.setDate(date0.getDate() + 1);
+      dates_r.push(date0.toISOString().split("T")[0]);
       if (date0 > today) break;
     }
 
@@ -88,6 +92,12 @@ function App() {
     letters.push(<div className={className} onClick={clickFunc}>{ letter }</div>);
   }
 
+  var dateOptions = [];
+
+  for (const i in dates) {
+    dateOptions.push(<option value={dates[i]}>{dates[i]}</option>);
+  }
+
   const submit = function() {
     if (quiz.answers.includes(answer)) {
       setSuccess(true);
@@ -107,6 +117,10 @@ function App() {
     var i = dates.indexOf(date) + 1;
     if (i>dates.length-1) return;
     fetchData(dates[i]);
+  }
+
+  const dateChanged = function(event: any) {
+    fetchData(event.target.value);
   }
 
   const getLink = function() {
@@ -134,6 +148,11 @@ Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${m
   return (
     <div className="App">
       <div className="App-content">
+        <div>
+          <select value={date} onChange={dateChanged}>
+            {dateOptions}
+          </select>
+        </div>
         <div>
           <button onClick={prev}>&lt;</button>
           date: { date }
