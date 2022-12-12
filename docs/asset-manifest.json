@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/mondo-problems/static/css/main.01cc15a3.css",
-    "main.js": "/mondo-problems/static/js/main.cdec1249.js",
+    "main.js": "/mondo-problems/static/js/main.7528b15c.js",
     "static/js/787.a77f4b20.chunk.js": "/mondo-problems/static/js/787.a77f4b20.chunk.js",
     "index.html": "/mondo-problems/index.html",
     "main.01cc15a3.css.map": "/mondo-problems/static/css/main.01cc15a3.css.map",
-    "main.cdec1249.js.map": "/mondo-problems/static/js/main.cdec1249.js.map",
+    "main.7528b15c.js.map": "/mondo-problems/static/js/main.7528b15c.js.map",
     "787.a77f4b20.chunk.js.map": "/mondo-problems/static/js/787.a77f4b20.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.01cc15a3.css",
-    "static/js/main.cdec1249.js"
+    "static/js/main.7528b15c.js"
   ]
 }

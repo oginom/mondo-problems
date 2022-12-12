@@ -140,7 +140,10 @@ Score: ${ quiz.question.length - indices.length }/${ quiz.question.length } (${m
 `;
     var url = getLink();
     var n = dates.indexOf(date) - 14;
-    var hashtags = `クイズMondo,Mondo${n}`;
+    var hashtags = "クイズMondo";
+    if (n > 0) {
+      hashtags += `,Mondo${n}`;
+    }
     const intent_url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
     window.open(intent_url, '_blank');
   }
