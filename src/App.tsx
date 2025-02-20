@@ -4,7 +4,7 @@ import './App.css';
 import axios from 'axios';
 import { useLocation, useSearchParams } from 'react-router-dom';
 
-const API_URL = 'https://h8u1f1ffd0.execute-api.ap-northeast-1.amazonaws.com/prod';
+const API_URL = 'https://jtfu6mrypg.execute-api.ap-northeast-1.amazonaws.com/prod';
 
 const SECRET = "●";
 
