@@ -52,7 +52,7 @@ function App() {
     const today = new Date();
     var date0 = new Date(2022, 4, 18); // 2022-05-18
     var dates_r = [];
-    for (var i=0;i<1000;++i) {
+    for (var i=0;i<1500;++i) {
       date0.setDate(date0.getDate() + 1);
       dates_r.push(date0.toISOString().split("T")[0]);
       if (date0 > today) break;
